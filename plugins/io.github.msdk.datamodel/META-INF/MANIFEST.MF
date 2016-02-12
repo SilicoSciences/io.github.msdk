@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MSDK Data Model
+Bundle-SymbolicName: io.github.msdk.datamodel
+Bundle-Version: 0.0.5.qualifier
+Export-Package: io.github.msdk,
+ io.github.msdk.datamodel.chromatograms,
+ io.github.msdk.datamodel.datapointstore,
+ io.github.msdk.datamodel.datastore,
+ io.github.msdk.datamodel.featuretables,
+ io.github.msdk.datamodel.files,
+ io.github.msdk.datamodel.impl,
+ io.github.msdk.datamodel.impl.converter,
+ io.github.msdk.datamodel.ionannotations,
+ io.github.msdk.datamodel.msspectra,
+ io.github.msdk.datamodel.rawdata,
+ io.github.msdk.datamodel.util,
+ io.github.msdk.id,
+ io.github.msdk.util
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: edu.umd.cs.findbugs.plugin.eclipse,
+ com.google.guava,
+ org.openscience.cdk.interfaces
+Import-Package: org.junit;resolution:=optional,
+ org.slf4j
