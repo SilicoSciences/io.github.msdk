@@ -27,7 +27,7 @@ Please see the complete [MSDK API](http://msdk.github.io/api/).
 
 ### Maven artifacts
 
-This branch does not support build using vanilla Maven. Switch to the `master` branch for vanilla Maven support.
+This Fork does not support build using vanilla Maven.
 
 ## Development
 
