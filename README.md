@@ -6,7 +6,9 @@ Project's `pom.xml` files have been replaced by a `pom.xml` that supports buildi
 # Dependencies
 
 0. [FindBugs](http://findbugs.sourceforge.net) provides an Eclipse update site:
-    http://findbugs.cs.umd.edu/eclipse
+    http://findbugs.cs.umd.edu/eclipse.
+    
+0. [Google's Guava](https://github.com/google/guava) is contained in the [Eclipse Orbit](http://download.eclipse.org/tools/orbit/downloads/) p2 repository.
 
 # About MSDK
 
