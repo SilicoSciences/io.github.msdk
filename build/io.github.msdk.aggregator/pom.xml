@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.github.msdk</groupId>
+	<artifactId>io.github.msdk.aggregator</artifactId>
+	<version>0.0.5-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+
+		<!-- Same repository -->
+
+		<module>../../features/io.github.msdk.libs.feature</module>
+
+		<!-- Libs -->
+		<module>../../../org.openscience.cdk/externals/org.3pq.jgrapht</module>
+		<module>../../../org.openscience.cdk/externals/javax.vecmath</module>
+		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.annotation</module>
+		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.core</module>
+		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.formula</module>
+		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.interfaces</module>
+		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.standard</module>
+
+	</modules>
+
+</project>
