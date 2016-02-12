@@ -1,3 +1,8 @@
+# About this Fork
+
+This fork enables Eclipse RCP features for the MSDK project.
+A new branch `master-eclipse-rcp` was introduced. On this branch, the project's `pom.xml` files have been replaced by a `pom.xml` that supports building Eclipse RCP Plug-ins with [Tycho](https://eclipse.org/tycho/). Furthermore, required aditional files, such as `META-INF/MANIFEST.MF` have been created.
+
 # About MSDK
 
 Mass Spectrometry Development Kit (MSDK) is a Java library of algorithms for processing mass spectrometry data. The goals of the library are to provide a flexible data model with Java interfaces for mass-spectrometry related objects (including raw spectra, processed data sets, identification results etc.) and to integrate the existing algorithms that are currently scattered around various Java-based graphical tools.
@@ -15,15 +20,7 @@ Please see the complete [MSDK API](http://msdk.github.io/api/).
 
 ### Maven artifacts
 
-MSDK jars are automatically deployed to Maven Central. In order to use MSDK, simply add the following dependency to your pom.xml:
-
-```
- <dependency>
-    <groupId>io.github.msdk</groupId>
-    <artifactId>msdk-all</artifactId>
-    <version>0.0.3</version>
- </dependency>
-```
+This branch does not support build using vanilla Maven. Switch to the `master` branch for vanilla Maven support.
 
 ## Development
 
