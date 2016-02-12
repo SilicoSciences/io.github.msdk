@@ -1,7 +1,12 @@
 # About this Fork
 
 This fork enables Eclipse RCP features for the MSDK project.
-A new branch `master-eclipse-rcp` was introduced. On this branch, the project's `pom.xml` files have been replaced by a `pom.xml` that supports building Eclipse RCP Plug-ins with [Tycho](https://eclipse.org/tycho/). Furthermore, required aditional files, such as `META-INF/MANIFEST.MF` have been created.
+Project's `pom.xml` files have been replaced by a `pom.xml` that supports building Eclipse RCP Plug-ins with [Tycho](https://eclipse.org/tycho/). Furthermore, required aditional files, such as `META-INF/MANIFEST.MF` have been created.
+
+# Dependencies
+
+0. [FindBugs](http://findbugs.sourceforge.net) provides an Eclipse update site:
+    http://findbugs.cs.umd.edu/eclipse
 
 # About MSDK
 
