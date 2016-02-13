@@ -1,60 +1,16 @@
-
-# How to build and deploy a release of MSDK
-
 ## Prerequisities
 
-* Install GPG and generate your key pair
-* Deploy your public GPG key to a public keyserver (e.g., pgp.mit.edu)
-* Get an account on Sonatype JIRA (https://issues.sonatype.org)
-* Setup your ~/.m2/settings.xml file using this template:
+A sucessful build depends on the `org.openscience.cdk` framework.
 
-```
-<settings>
-  <servers>
-    <server>
-      <id>ossrh</id>
-      <username>SONATYPE_JIRA_USERNAME</username>
-      <password>SONATYPE_JIRA_PASSWORD</password>
-    </server>
-  </servers>
-  <profiles>
-    <profile>
-      <id>ossrh</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <gpg.executable>/usr/local/bin/gpg2</gpg.executable>
-        <gpg.passphrase></gpg.passphrase>
-      </properties>
-    </profile>
-  </profiles>
-</settings>
-```
+Clone `org.openscience.cdk` into the same directory as MSDK. E.g.:
 
-# Build
+    git clone git@github.com:SilicoSciences/org.openscience.cdk.git
+    git clone git@github.com:SilicoSciences/msdk.git
 
-Use the following sequence of commands to build and release a new MSDK version.
+# How to build MSDK using Maven Tycho
 
-```
-# Cleanup 
-mvn clean
+Eclipse Plug-ins can be found unter `plugins` directory, features in the `features` directory. An additional folder, `build` contains projects that are needed to build MSDK using Tycho.
 
-# Update version number of all modules (change X.Y.Z to new version number)
-mvn versions:set -DnewVersion=X.Y.Z versions:commit
+The `build` directory contains the `parent` project as well as an `aggregator` project.
 
-# Optional - fix missing JavaDoc comments
-mvn -DfixTags=param,return,throws -Dforce javadoc:fix
-
-# Build the whole project
-mvn -Pmsdk-release package
-
-# Deploy after successful build
-mvn -Pmsdk-release deploy
-
-# To generate complete JavaDoc documentation and upload it to http://msdk.github.io/api/
-mvn -Pmsdk-release -DskipTests package javadoc:aggregate scm-publish:publish-scm
-
-# After a succesful release, set the versions to the next development version
-mvn versions:set -DnewVersion=X.Y.Z-SNAPSHOT versions:commit
-```
+To start the build, cd to `build\io.github.msdk.aggregator` and execute e.g. `mvn install`.
