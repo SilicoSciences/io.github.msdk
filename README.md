@@ -3,7 +3,7 @@
 This fork enables Eclipse RCP features for the MSDK project.
 Project's `pom.xml` files have been replaced by a `pom.xml` that supports building Eclipse RCP Plug-ins with [Tycho](https://eclipse.org/tycho/). Furthermore, required aditional files, such as `META-INF/MANIFEST.MF` have been created.
 
-See Build section for more info.
+See [BUILD.md](BUILD.md) for more info.
 
 # Dependencies
 
@@ -51,4 +51,4 @@ MSDK uses the [SLF4J library](http://www.slf4j.org) for logging. This library ca
 
 ### Building 
 
-See the [BUILD.md](BUILD.md) file
+See the [BUILD.md](BUILD.md) file.
