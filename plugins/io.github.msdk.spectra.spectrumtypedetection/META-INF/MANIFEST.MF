@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Spectrumtypedetection
+Bundle-SymbolicName: io.github.msdk.spectra.spectrumtypedetection
+Bundle-Version: 0.0.5.qualifier
+Export-Package: io.github.msdk.spectra.spectrumtypedetection
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: io.github.msdk.datamodel;bundle-version="0.0.5",
+ edu.umd.cs.findbugs.plugin.eclipse;bundle-version="3.0.1"

@@ -16,6 +16,9 @@
 		<module>../../features/io.github.msdk.libs.feature</module>
 		<module>../../features/io.github.msdk.base.feature</module>
 		<module>../../plugins/io.github.msdk.datamodel</module>
+		<module>../../plugins/io.github.msdk.spectra.spectrumtypedetection</module>
+		<module>../../plugins/io.github.msdk.io.mzml</module>
+		<module>../../plugins/io.github.msdk.libs.wrapper.jmzml</module>
 
 		<!-- CDK Libs -->
 		<module>../../../org.openscience.cdk/externals/org.3pq.jgrapht</module>
