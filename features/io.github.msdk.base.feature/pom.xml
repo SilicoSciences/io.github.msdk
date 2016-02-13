@@ -11,6 +11,6 @@
 		<relativePath>../../build/io.github.msdk.parent/</relativePath>
 	</parent>
 
-	<artifactId>io.github.msdk.datamodel</artifactId>
-	<packaging>eclipse-plugin</packaging>
+	<artifactId>io.github.msdk.base.feature</artifactId>
+	<packaging>eclipse-feature</packaging>
 </project>
