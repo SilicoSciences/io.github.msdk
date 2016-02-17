@@ -18,8 +18,8 @@ Export-Package: io.github.msdk,
  io.github.msdk.id,
  io.github.msdk.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: edu.umd.cs.findbugs.plugin.eclipse,
- com.google.guava,
- org.openscience.cdk.interfaces
+Require-Bundle: com.google.guava,
+ org.openscience.cdk.interfaces,
+ io.github.msdk.libs.wrapper.findbugs;bundle-version="3.0.1"
 Import-Package: org.junit;resolution:=optional,
  org.slf4j

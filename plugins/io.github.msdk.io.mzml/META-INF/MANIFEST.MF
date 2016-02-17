@@ -5,10 +5,10 @@ Bundle-SymbolicName: io.github.msdk.io.mzml
 Bundle-Version: 0.0.5.qualifier
 Export-Package: io.github.msdk.io.mzml
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: edu.umd.cs.findbugs.plugin.eclipse,
- io.github.msdk.datamodel,
+Require-Bundle: io.github.msdk.datamodel,
  com.google.guava,
- io.github.msdk.libs.wrapper.jmzml
+ io.github.msdk.libs.wrapper.jmzml,
+ io.github.msdk.libs.wrapper.findbugs
 Import-Package: io.github.msdk.spectra.spectrumtypedetection,
  org.junit;resolution:=optional,
  org.slf4j

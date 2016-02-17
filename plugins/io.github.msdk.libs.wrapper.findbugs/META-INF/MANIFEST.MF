@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Findbugs Wrapper
+Bundle-SymbolicName: io.github.msdk.libs.wrapper.findbugs
+Bundle-Version: 3.0.1
+Bundle-Activator: io.github.msdk.libs.wrapper.findbugs.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ libs/jsr305-3.0.1.jar
+Export-Package: javax.annotation,
+ javax.annotation.concurrent,
+ javax.annotation.meta

@@ -2,13 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JmzML Wrapper
 Bundle-SymbolicName: io.github.msdk.libs.wrapper.jmzml
-Bundle-Version: 1.7.4
+Bundle-Version: 0.0.5.qualifier
 Bundle-Activator: io.github.msdk.libs.wrapper.jmzml.Activator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Bundle-ClassPath: libs/jmzml-1.7.4.jar,
- .
+Bundle-ClassPath: .,
+ libs/jmzml-1.7.4.jar,
+ libs/xxindex-0.16.jar,
+ libs/fastutil-6.5.16.jar,
+ libs/woodstox-core-asl-4.3.0.jar
 Export-Package: uk.ac.ebi.jmzml,
  uk.ac.ebi.jmzml.model.mzml,
  uk.ac.ebi.jmzml.model.mzml.interfaces,
@@ -26,3 +29,21 @@ Export-Package: uk.ac.ebi.jmzml,
  uk.ac.ebi.jmzml.xml.jaxb.unmarshaller.listeners,
  uk.ac.ebi.jmzml.xml.util,
  uk.ac.ebi.jmzml.xml.xxindex
+Import-Package: com.sun.xml.bind,
+ javax.activation,
+ org.apache.commons.codec,
+ org.apache.commons.collections,
+ org.apache.commons.io.input,
+ org.codehaus.stax2,
+ org.codehaus.stax2.evt,
+ org.codehaus.stax2.io,
+ org.codehaus.stax2.osgi,
+ org.codehaus.stax2.ri,
+ org.codehaus.stax2.ri.dom,
+ org.codehaus.stax2.ri.evt,
+ org.codehaus.stax2.ri.typed,
+ org.codehaus.stax2.typed,
+ org.codehaus.stax2.util,
+ org.codehaus.stax2.validation,
+ org.junit;resolution:=optional,
+ org.slf4j
