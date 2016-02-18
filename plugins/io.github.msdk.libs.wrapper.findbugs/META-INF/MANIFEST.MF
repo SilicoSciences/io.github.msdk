@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Findbugs Wrapper
 Bundle-SymbolicName: io.github.msdk.libs.wrapper.findbugs
-Bundle-Version: 3.0.1
+Bundle-Version: 3.0.1.qualifier
 Bundle-Activator: io.github.msdk.libs.wrapper.findbugs.Activator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

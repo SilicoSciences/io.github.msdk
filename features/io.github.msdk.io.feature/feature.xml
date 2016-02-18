@@ -25,10 +25,10 @@
          version="0.0.0"/>
 
    <requires>
-      <import plugin="edu.umd.cs.findbugs.plugin.eclipse"/>
       <import plugin="io.github.msdk.datamodel"/>
       <import plugin="com.google.guava"/>
       <import plugin="io.github.msdk.libs.wrapper.jmzml"/>
+      <import plugin="io.github.msdk.libs.wrapper.findbugs"/>
       <import plugin="io.github.msdk.spectra.spectrumtypedetection"/>
       <import plugin="org.slf4j.api"/>
       <import plugin="org.junit"/>

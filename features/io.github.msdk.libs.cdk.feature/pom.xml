@@ -11,7 +11,6 @@
 		<relativePath>../../build/io.github.msdk.parent/</relativePath>
 	</parent>
 
-	<artifactId>io.github.msdk.libs.wrapper.jmzml</artifactId>
-	<version>1.7.4-SNAPSHOT</version>
-	<packaging>eclipse-plugin</packaging>
+	<artifactId>io.github.msdk.libs.cdk.feature</artifactId>
+	<packaging>eclipse-feature</packaging>
 </project>

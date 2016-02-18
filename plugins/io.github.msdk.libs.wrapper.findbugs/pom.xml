@@ -11,7 +11,7 @@
 		<relativePath>../../build/io.github.msdk.parent/</relativePath>
 	</parent>
 
-	<artifactId>io.github.msdk.libs.wrapper.jmzml</artifactId>
-	<version>3.0.1</version>
+	<artifactId>io.github.msdk.libs.wrapper.findbugs</artifactId>
+	<version>3.0.1-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 </project>

@@ -22,7 +22,7 @@
 		<mars-updates-repo.url>http://download.eclipse.org/eclipse/updates/4.5</mars-updates-repo.url>
 		<e4-tools.url>http://download.eclipse.org/e4/downloads/drops/S-0.17-201501051100/repository</e4-tools.url>
 		<orbit-repo.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20151118145958/repository</orbit-repo.url>
-		<findbugs-repo.url>http://findbugs.cs.umd.edu/eclipse</findbugs-repo.url>
+		<knime-repo.url>http://update.knime.org/analytics-platform/3.1</knime-repo.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -48,8 +48,8 @@
 			<layout>p2</layout>
 		</repository>
 		<repository>
-			<id>findbugs</id>
-			<url>${findbugs-repo.url}</url>
+			<id>knime</id>
+			<url>${knime-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>

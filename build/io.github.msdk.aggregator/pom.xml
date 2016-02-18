@@ -14,21 +14,17 @@
 		<!-- Same repository -->
 
 		<module>../../features/io.github.msdk.libs.feature</module>
+		<module>../../features/io.github.msdk.libs.cdk.feature</module>
 		<module>../../features/io.github.msdk.base.feature</module>
 		<module>../../plugins/io.github.msdk.datamodel</module>
 		<module>../../plugins/io.github.msdk.spectra.spectrumtypedetection</module>
 		<module>../../plugins/io.github.msdk.io.mzml</module>
+		<module>../../features/io.github.msdk.io.feature</module>
 		<module>../../plugins/io.github.msdk.libs.wrapper.jmzml</module>
 		<module>../../plugins/io.github.msdk.libs.wrapper.findbugs</module>
 
 		<!-- CDK Libs -->
-		<module>../../../org.openscience.cdk/externals/org.3pq.jgrapht</module>
-		<module>../../../org.openscience.cdk/externals/javax.vecmath</module>
-		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.annotation</module>
-		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.core</module>
-		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.formula</module>
-		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.interfaces</module>
-		<module>../../../org.openscience.cdk/plugins/org.openscience.cdk.standard</module>
+		<module>../../../org.openscience.cdk/build/org.openscience.cdk.aggregator</module>
 
 	</modules>
 

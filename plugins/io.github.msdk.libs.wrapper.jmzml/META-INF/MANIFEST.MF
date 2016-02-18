@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JmzML Wrapper
 Bundle-SymbolicName: io.github.msdk.libs.wrapper.jmzml
-Bundle-Version: 0.0.5.qualifier
+Bundle-Version: 1.7.4.qualifier
 Bundle-Activator: io.github.msdk.libs.wrapper.jmzml.Activator
 Require-Bundle: org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
