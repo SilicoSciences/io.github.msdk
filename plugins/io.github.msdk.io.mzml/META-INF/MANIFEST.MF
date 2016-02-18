@@ -8,7 +8,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: io.github.msdk.datamodel,
  com.google.guava,
  io.github.msdk.libs.wrapper.jmzml,
- io.github.msdk.libs.wrapper.findbugs
-Import-Package: io.github.msdk.spectra.spectrumtypedetection,
- org.junit;resolution:=optional,
+ io.github.msdk.libs.wrapper.findbugs,
+ io.github.msdk.spectra.spectrumtypedetection;bundle-version="0.0.5"
+Import-Package: org.junit;resolution:=optional,
  org.slf4j

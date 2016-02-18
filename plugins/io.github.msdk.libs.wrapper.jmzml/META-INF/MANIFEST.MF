@@ -4,7 +4,10 @@ Bundle-Name: JmzML Wrapper
 Bundle-SymbolicName: io.github.msdk.libs.wrapper.jmzml
 Bundle-Version: 1.7.4.qualifier
 Bundle-Activator: io.github.msdk.libs.wrapper.jmzml.Activator
-Require-Bundle: org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime,
+ org.apache.commons.codec;bundle-version="1.6.0",
+ org.apache.commons.collections;bundle-version="3.2.0",
+ org.apache.commons.io;bundle-version="2.4.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,
@@ -31,9 +34,6 @@ Export-Package: uk.ac.ebi.jmzml,
  uk.ac.ebi.jmzml.xml.xxindex
 Import-Package: com.sun.xml.bind,
  javax.activation,
- org.apache.commons.codec,
- org.apache.commons.collections,
- org.apache.commons.io.input,
  org.codehaus.stax2,
  org.codehaus.stax2.evt,
  org.codehaus.stax2.io,

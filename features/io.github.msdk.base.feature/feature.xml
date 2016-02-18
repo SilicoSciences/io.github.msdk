@@ -16,6 +16,15 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import plugin="com.google.guava"/>
+      <import plugin="org.openscience.cdk.interfaces"/>
+      <import plugin="io.github.msdk.libs.wrapper.findbugs" version="3.0.1" match="greaterOrEqual"/>
+      <import plugin="org.slf4j.api"/>
+      <import plugin="org.junit"/>
+      <import plugin="io.github.msdk.datamodel" version="0.0.5" match="greaterOrEqual"/>
+   </requires>
+
    <plugin
          id="io.github.msdk.datamodel"
          download-size="0"
