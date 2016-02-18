@@ -1,4 +1,4 @@
-/* 
+/*
  * (C) Copyright 2015-2016 by MSDK Development Team
  *
  * This software is dual-licensed under either
@@ -26,6 +26,7 @@ import com.google.common.collect.ImmutableList;
 
 import io.github.msdk.datamodel.chromatograms.Chromatogram;
 import io.github.msdk.datamodel.datastore.DataPointStore;
+import io.github.msdk.datamodel.featuretables.Sample;
 import io.github.msdk.datamodel.files.FileType;
 import io.github.msdk.datamodel.rawdata.MsFunction;
 import io.github.msdk.datamodel.rawdata.MsScan;
@@ -36,105 +37,49 @@ import io.github.msdk.datamodel.rawdata.RawDataFile;
  */
 class SimpleRawDataFile implements RawDataFile {
 
-    private @Nonnull String rawDataFileName;
-    private @Nullable File originalRawDataFile;
-    private @Nonnull FileType rawDataFileType;
-    private final @Nonnull ArrayList<MsScan> scans;
     private final @Nonnull ArrayList<Chromatogram> chromatograms;
     private final @Nonnull DataPointStore dataPointStore;
+    private @Nullable File originalRawDataFile;
+    private @Nonnull String rawDataFileName;
+    private @Nonnull FileType rawDataFileType;
+    private @Nullable Sample sample;
+    private final @Nonnull ArrayList<MsScan> scans;
 
-    SimpleRawDataFile(@Nonnull String rawDataFileName,
-            @Nullable File originalRawDataFile,
-            @Nonnull FileType rawDataFileType,
-            @Nonnull DataPointStore dataPointStore) {
-        Preconditions.checkNotNull(rawDataFileType);
-        Preconditions.checkNotNull(dataPointStore);
-        this.rawDataFileName = rawDataFileName;
-        this.originalRawDataFile = originalRawDataFile;
-        this.rawDataFileType = rawDataFileType;
-        this.dataPointStore = dataPointStore;
-        this.scans = new ArrayList<>();
-        this.chromatograms = new ArrayList<>();
+    SimpleRawDataFile(@Nonnull final String rawDataFileName, @Nullable final File originalRawDataFile,
+	    @Nonnull final FileType rawDataFileType, @Nonnull final DataPointStore dataPointStore) {
+	Preconditions.checkNotNull(rawDataFileType);
+	Preconditions.checkNotNull(dataPointStore);
+	this.rawDataFileName = rawDataFileName;
+	this.originalRawDataFile = originalRawDataFile;
+	this.rawDataFileType = rawDataFileType;
+	this.dataPointStore = dataPointStore;
+	scans = new ArrayList<>();
+	chromatograms = new ArrayList<>();
     }
 
     /** {@inheritDoc} */
     @Override
-    public @Nonnull String getName() {
-        return rawDataFileName;
+    public void addChromatogram(@Nonnull final Chromatogram chromatogram) {
+	Preconditions.checkNotNull(chromatogram);
+	synchronized (chromatograms) {
+	    chromatograms.add(chromatogram);
+	}
     }
 
     /** {@inheritDoc} */
     @Override
-    public void setName(@Nonnull String name) {
-        Preconditions.checkNotNull(name);
-        this.rawDataFileName = name;
+    public void addScan(@Nonnull final MsScan scan) {
+	Preconditions.checkNotNull(scan);
+	synchronized (scans) {
+	    scans.add(scan);
+	}
+	scan.setRawDataFile(this);
     }
 
     /** {@inheritDoc} */
     @Override
-    @Nullable
-    public File getOriginalFile() {
-        return originalRawDataFile;
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void setOriginalFile(@Nullable File newOriginalFile) {
-        this.originalRawDataFile = newOriginalFile;
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public @Nonnull FileType getRawDataFileType() {
-        return rawDataFileType;
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void setRawDataFileType(@Nonnull FileType rawDataFileType) {
-        Preconditions.checkNotNull(rawDataFileType);
-        this.rawDataFileType = rawDataFileType;
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    @Nonnull
-    public List<MsFunction> getMsFunctions() {
-        ArrayList<MsFunction> msFunctionList = new ArrayList<>();
-        synchronized (scans) {
-            for (MsScan scan : scans) {
-                MsFunction f = scan.getMsFunction();
-                if (f != null)
-                    msFunctionList.add(f);
-            }
-        }
-        return msFunctionList;
-    }
-
-    /** {@inheritDoc} */
-    @SuppressWarnings("null")
-    @Override
-    public @Nonnull List<MsScan> getScans() {
-        return ImmutableList.copyOf(scans);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void addScan(@Nonnull MsScan scan) {
-        Preconditions.checkNotNull(scan);
-        synchronized (scans) {
-            scans.add(scan);
-        }
-        scan.setRawDataFile(this);
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void removeScan(@Nonnull MsScan scan) {
-        Preconditions.checkNotNull(scan);
-        synchronized (scans) {
-            scans.remove(scan);
-        }
+    public void dispose() {
+	dataPointStore.dispose();
     }
 
     /** {@inheritDoc} */
@@ -142,31 +87,99 @@ class SimpleRawDataFile implements RawDataFile {
     @Override
     @Nonnull
     public List<Chromatogram> getChromatograms() {
-        return ImmutableList.copyOf(chromatograms);
+	return ImmutableList.copyOf(chromatograms);
     }
 
     /** {@inheritDoc} */
     @Override
-    public void addChromatogram(@Nonnull Chromatogram chromatogram) {
-        Preconditions.checkNotNull(chromatogram);
-        synchronized (chromatograms) {
-            chromatograms.add(chromatogram);
-        }
+    @Nonnull
+    public List<MsFunction> getMsFunctions() {
+	final ArrayList<MsFunction> msFunctionList = new ArrayList<>();
+	synchronized (scans) {
+	    for (final MsScan scan : scans) {
+		final MsFunction f = scan.getMsFunction();
+		if (f != null) {
+		    msFunctionList.add(f);
+		}
+	    }
+	}
+	return msFunctionList;
     }
 
     /** {@inheritDoc} */
     @Override
-    public void removeChromatogram(@Nonnull Chromatogram chromatogram) {
-        Preconditions.checkNotNull(chromatogram);
-        synchronized (chromatograms) {
-            chromatograms.remove(chromatogram);
-        }
+    public @Nonnull String getName() {
+	return rawDataFileName;
     }
 
     /** {@inheritDoc} */
     @Override
-    public void dispose() {
-        dataPointStore.dispose();
+    @Nullable
+    public File getOriginalFile() {
+	return originalRawDataFile;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public @Nonnull FileType getRawDataFileType() {
+	return rawDataFileType;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Sample getSample() {
+	return sample;
+    }
+
+    /** {@inheritDoc} */
+    @SuppressWarnings("null")
+    @Override
+    public @Nonnull List<MsScan> getScans() {
+	return ImmutableList.copyOf(scans);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void removeChromatogram(@Nonnull final Chromatogram chromatogram) {
+	Preconditions.checkNotNull(chromatogram);
+	synchronized (chromatograms) {
+	    chromatograms.remove(chromatogram);
+	}
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void removeScan(@Nonnull final MsScan scan) {
+	Preconditions.checkNotNull(scan);
+	synchronized (scans) {
+	    scans.remove(scan);
+	}
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setName(@Nonnull final String name) {
+	Preconditions.checkNotNull(name);
+	rawDataFileName = name;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setOriginalFile(@Nullable final File newOriginalFile) {
+	originalRawDataFile = newOriginalFile;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setRawDataFileType(@Nonnull final FileType rawDataFileType) {
+	Preconditions.checkNotNull(rawDataFileType);
+	this.rawDataFileType = rawDataFileType;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void setSample(final Sample sample) {
+	this.sample = sample;
     }
 
 }

@@ -1,4 +1,4 @@
-/* 
+/*
  * (C) Copyright 2015-2016 by MSDK Development Team
  *
  * This software is dual-licensed under either
@@ -21,6 +21,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import io.github.msdk.datamodel.chromatograms.Chromatogram;
+import io.github.msdk.datamodel.featuretables.Sample;
 import io.github.msdk.datamodel.files.FileType;
 
 /**
@@ -32,71 +33,13 @@ import io.github.msdk.datamodel.files.FileType;
 public interface RawDataFile {
 
     /**
-     * Returns the name of this raw data file. This can be any descriptive name,
-     * not necessarily the original file name.
+     * Adds a new chromatogram to this file.
      *
-     * @return Raw data file name
+     * @param chromatogram
+     *            a {@link io.github.msdk.datamodel.chromatograms.Chromatogram}
+     *            object.
      */
-    @Nonnull
-    String getName();
-
-    /**
-     * Updates the name of this raw data file.
-     *
-     * @param name
-     *            New name
-     */
-    void setName(@Nonnull String name);
-
-    /**
-     * Returns the original file name and path where the file was loaded from,
-     * or null if this file was created by MSDK.
-     *
-     * @return Original filename and path.
-     */
-    @Nullable
-    File getOriginalFile();
-
-    /**
-     * Sets the original file name and path of the raw data file.
-     *
-     * @param newOriginalFile
-     *            Original filename and path.
-     */
-    void setOriginalFile(@Nullable File newOriginalFile);
-
-    /**
-     * Returns the file type of this raw data file.
-     *
-     * @return Raw data file type
-     */
-    @Nonnull
-    FileType getRawDataFileType();
-
-    /**
-     * Sets the file type of this raw data file.
-     *
-     * @param rawDataFileType
-     *            Raw data file type
-     */
-    void setRawDataFileType(@Nonnull FileType rawDataFileType);
-
-    /**
-     * Returns all MS functions found in this raw data file.
-     *
-     * @return A list of MS functions.
-     */
-    @Nonnull
-    List<MsFunction> getMsFunctions();
-
-    /**
-     * Returns an immutable list of all scans. The list can be safely iterated
-     * over, as it cannot be modified by another thread.
-     *
-     * @return A list of all scans.
-     */
-    @Nonnull
-    List<MsScan> getScans();
+    void addChromatogram(@Nonnull Chromatogram chromatogram);
 
     /**
      * Adds a new scan to this file.
@@ -107,12 +50,11 @@ public interface RawDataFile {
     void addScan(@Nonnull MsScan scan);
 
     /**
-     * Removes a scan from this file.
-     *
-     * @param scan
-     *            Scan to remove.
+     * Remove all data associated with this file from the disk. After this
+     * method is called, any subsequent method calls on this object will throw
+     * IllegalStateException.
      */
-    void removeScan(@Nonnull MsScan scan);
+    void dispose();
 
     /**
      * Returns an immutable list of all chromatograms. The list can be safely
@@ -124,13 +66,55 @@ public interface RawDataFile {
     List<Chromatogram> getChromatograms();
 
     /**
-     * Adds a new chromatogram to this file.
+     * Returns all MS functions found in this raw data file.
      *
-     * @param chromatogram
-     *            a {@link io.github.msdk.datamodel.chromatograms.Chromatogram}
-     *            object.
+     * @return A list of MS functions.
      */
-    void addChromatogram(@Nonnull Chromatogram chromatogram);
+    @Nonnull
+    List<MsFunction> getMsFunctions();
+
+    /**
+     * Returns the name of this raw data file. This can be any descriptive name,
+     * not necessarily the original file name.
+     *
+     * @return Raw data file name
+     */
+    @Nonnull
+    String getName();
+
+    /**
+     * Returns the original file name and path where the file was loaded from,
+     * or null if this file was created by MSDK.
+     *
+     * @return Original filename and path.
+     */
+    @Nullable
+    File getOriginalFile();
+
+    /**
+     * Returns the file type of this raw data file.
+     *
+     * @return Raw data file type
+     */
+    @Nonnull
+    FileType getRawDataFileType();
+
+    /**
+     * Returns the {@link Sample} to which this raw data file is associated to.
+     *
+     * @return the {@link Sample} to which this raw data file is associated to
+     */
+    @Nullable
+    Sample getSample();
+
+    /**
+     * Returns an immutable list of all scans. The list can be safely iterated
+     * over, as it cannot be modified by another thread.
+     *
+     * @return A list of all scans.
+     */
+    @Nonnull
+    List<MsScan> getScans();
 
     /**
      * Removes a chromatogram from this file.
@@ -142,10 +126,44 @@ public interface RawDataFile {
     void removeChromatogram(@Nonnull Chromatogram chromatogram);
 
     /**
-     * Remove all data associated with this file from the disk. After this
-     * method is called, any subsequent method calls on this object will throw
-     * IllegalStateException.
+     * Removes a scan from this file.
+     *
+     * @param scan
+     *            Scan to remove.
      */
-    void dispose();
+    void removeScan(@Nonnull MsScan scan);
+
+    /**
+     * Updates the name of this raw data file.
+     *
+     * @param name
+     *            New name
+     */
+    void setName(@Nonnull String name);
+
+    /**
+     * Sets the original file name and path of the raw data file.
+     *
+     * @param newOriginalFile
+     *            Original filename and path.
+     */
+    void setOriginalFile(@Nullable File newOriginalFile);
+
+    /**
+     * Sets the file type of this raw data file.
+     *
+     * @param rawDataFileType
+     *            Raw data file type
+     */
+    void setRawDataFileType(@Nonnull FileType rawDataFileType);
+
+    /**
+     * Sets the {@link Sample} to which this raw data file is associated to.
+     *
+     * @param sample
+     *            {@link Sample} the {@link Sample} to which this raw data file
+     *            is associated to
+     */
+    void setSample(@Nullable Sample sample);
 
 }
