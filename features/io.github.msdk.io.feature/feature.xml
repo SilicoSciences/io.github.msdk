@@ -17,10 +17,6 @@
    </license>
 
    <includes
-         id="io.github.msdk.base.feature"
-         version="0.0.0"/>
-
-   <includes
          id="io.github.msdk.libs.feature"
          version="0.0.0"/>
 

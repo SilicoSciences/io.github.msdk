@@ -16,6 +16,10 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+   </requires>
+
    <plugin
          id="org.openscience.cdk.core"
          download-size="0"
@@ -46,6 +50,19 @@
 
    <plugin
          id="org.openscience.cdk.annotation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="javax.vecmath"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.3pq.jgrapht"
          download-size="0"
          install-size="0"
          version="0.0.0"
